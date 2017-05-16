@@ -1,19 +1,55 @@
-var myApp = angular.module('myApp', []);
+var myApp = angular.module('myApp', ['ngRoute']);
 
-// set up a controller --> service is the name of the service file
-myApp.controller('HighFivesController', function(service){
-  console.log('HF');
+myApp.config(function($routeProvider, $locationProvider){
+  $routeProvider.when('/', {
+    template: '<div> Default </div>',
+    controller: ' DefaultController as defCtrl'
+  }).when('/tom', {
+    templateUrl: 'views/tom.html',
+    controller: 'TomController as tomCtrl'
+  }).when('/jerry', {
+    templateUrl: 'views/jerry.html',
+    controller: 'JerryController as jerryCtrl'
+  }).when('/cheese', {
+    templateUrl: 'views/cheese.html',
+    controller: 'CheeseController as cheeseCtrl'
+  }).otherwise('/');
+
+  $locationProvider.html5Mode(true);
+});
+
+// set up a controller --> GetRandomNumber comes from the service file
+myApp.controller('TomController', function($http){
+  console.log('TC');
+});
+
+myApp.controller('JerryController', function($http){
+  console.log('JC');
+});
+
+myApp.controller('CheeseController', function($http){
+  console.log('CC');
+});
   // variable global to this controller
   var vm = this;
   vm.test = 'here is a thing';
 
-  var randomNumber = service.randomNumber(1, 10);  // service is the name of the service file
-  console.log('here is a randomNumber ->', randomNumber);
-  vm.skill = randomNumber;
+  vm.skill = GetRandomNumber.randomNumber(1, 10);
+  console.log('here is a randomNumber ->', vm.skill);
 
   vm.getQuality = function(){
     // get another randomNumber
+    vm.quality = GetRandomNumber.randomNumber(1, 10);
+  console.log('here is anotherRandomNumber ->', vm.quality);
+
     // compare to the skill
+    if (vm.quality >= vm.skill){
+      GetRandomNumber.increment();
+
+      console.log("success!");
+    } else {
+      console.log("high five unsuccessful");
+    }
+      vm.count = GetRandomNumber.getCount();
     // possibly update the counter
   };
-});
