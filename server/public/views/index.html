@@ -15,16 +15,17 @@
 </head>
 
 <body ng-app="myApp">
-  <div class="jumbotron">
-  <h1>Angular High Fives</h1>
+
+<header class="header"><h1>Angular High Fives</h1></header>
   <!-- <div ng-repeat=> -->
-    <nav>
+    <nav class="navbar">
+      <!-- nav class="navbar navbar-default" -->
       <a href="/default">Home</a>
       <a href="/tom">Tom</a>
       <a href="/jerry">Jerry</a>
       <a href="/cheese">Cheese</a>
     </nav>
-  </div>
+
   <ng-view></ng-view>
 </body>
 

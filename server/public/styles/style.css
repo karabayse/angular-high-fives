@@ -1,6 +1,23 @@
+header {
+  background-color: White;
+  background-size: 50% 100%;
+  height: 50px;
+  margin-bottom: 10px;
+}
+
+.navbar a {
+  color: White;
+  text-align: center;
+  font-family: Helvetica;
+  font-size: 100%;
+  letter-spacing: 1px;
+  padding-right: 10px;
+  padding-left: 10px;
+}
+
 body {
-  background-image: url("http://www.hdwallpapersfreedownload.com/uploads/large/cartoons/tom-and-jerry-cheese-hd-wallpaper.jpg");
-  background-color: Blue;
+  /*background-image: url("http://www.hdwallpapersfreedownload.com/uploads/large/cartoons/tom-and-jerry-cheese-hd-wallpaper.jpg");*/
+  background-color: Gainsboro;
   text-align: center;
   font-family: Shermlock;
 }
